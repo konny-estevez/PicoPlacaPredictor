@@ -47,7 +47,6 @@ class Validators {
 
     // Time Validation Method
      LocalTime ValidateTime(String timeString, StringBuilder errorMessage) {
-        LocalTime result = null;
         try {
             return LocalTime.parse(timeString);
         }
