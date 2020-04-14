@@ -20,6 +20,7 @@ public class Main {
 
         System.out.println("Pico & Placa Predictor");
         System.out.println();
+        // Input and validation of License Plate
         do {
             System.out.println("Please enter a license plate number (format: xxx0000)");
             licensePlate = inputText.nextLine();
@@ -32,6 +33,7 @@ public class Main {
             }
         } while (licensePlate == null);
         System.out.println();
+        //Input and validation of Date of occurrence
         do {
             System.out.println("Please enter the date (format: yyyy-mm-dd)");
             dateString = inputText.nextLine();
@@ -44,6 +46,7 @@ public class Main {
             }
         } while (date == null);
         System.out.println();
+        // Input and validation of Time of occurrence
         do {
             System.out.println("Please enter the time (format: HH:MM)");
             timeString = inputText.nextLine();
@@ -55,6 +58,18 @@ public class Main {
                 System.out.println();
             }
         } while (time == null);
+        System.out.println();
+        Predictor predictor = new Predictor();
+        errorMessage.delete(0, errorMessage.length());
+        boolean probability = predictor.PredictVehiclePresence(licensePlate, date, time, errorMessage);
+        if (errorMessage.length() == 0) {
+            System.out.format("The vehicle with license plate %s on date %s at %s is%son the road",
+                    licensePlate, date, time, probability ? " " : " NOT ");
+        }
+        else {
+            System.out.println(errorMessage);
+        }
+        System.out.println();
         System.out.println();
         System.out.println("Process terminated...");
     }

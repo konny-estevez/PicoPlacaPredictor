@@ -18,7 +18,7 @@ class Validators {
         licensePlatePattern = Pattern.compile(licensePlateExpression);
     }
 
-    // License Plate Validation Method
+    // License Plate Validation Method with Regular Expressions and Letter for Province
     String ValidateLicensePlate(String licensePlate, StringBuilder errorMessage) {
         String result = null;
         licensePlate = licensePlate.trim();
@@ -34,7 +34,7 @@ class Validators {
         return  result;
     }
 
-    // Date Validation Method
+    // Date Validation Method with Java integrated functions on LocalDate
     LocalDate ValidateDate(String dateString, StringBuilder errorMessage) {
         try {
             return LocalDate.parse(dateString);
@@ -45,7 +45,7 @@ class Validators {
         return null;
     }
 
-    // Time Validation Method
+    // Time Validation Method with Java integrated functions on LocalTime
      LocalTime ValidateTime(String timeString, StringBuilder errorMessage) {
         try {
             return LocalTime.parse(timeString);
